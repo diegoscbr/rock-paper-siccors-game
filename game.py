@@ -1,8 +1,18 @@
 #game.py
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+x = os.getenv("PLAYER_NAME")
+print(x)
+
+
 import random 
 
 print(" WELCOME TO Rock, Paper, Scissors, Shoot!")
+ 
 
 #propt user for input
 
@@ -19,18 +29,21 @@ computer_choice = random.choice(options)
 print("Computer chose:")
 print(computer_choice)
 
-
+if user_choice not in options:
+    print("INVALID OPT.")
+    exit()
+#adapted from GIANNA in slack
 if computer_choice == user_choice:
-    print ("Draw!")
-    
+    print ("NO WINNER,TIE! TRY AGAIN!")
+   
 elif computer_choice == 'rock' and user_choice == 'scissors':
-    print ("Computer wins, rock beat scissors, try again!")
+    print ("COMPUTER WINS, rock beat scissors, try again!")
 
 elif computer_choice == 'scissors' and user_choice == 'paper':
-    print ("Computer wins, scissors beat paper, try again!")
+    print ("COMPUTER WINS, scissors beat paper, try again!")
 
 elif computer_choice == 'paper' and user_choice =='rock':
-    print ("Computer wins, paper beat rock, try again!")
+    print ("COMPUTER WINS, paper beat rock, try again!")
 
 elif computer_choice == 'scissors' and user_choice == 'rock':
     print ("YOU WIN! Guess you're smarter than a computer;)")
